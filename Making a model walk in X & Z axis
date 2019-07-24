@@ -1,0 +1,32 @@
+//First need to add rigid body on player game object & remember to unchecked gravity on rigid body
+//you can move your character using unity default keys (WASD or arrow keys)
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class taichi : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+     public float walkingspeed = 1;
+ 
+     void FixedUpdate ()
+     {
+         float moveHorizontal = Input.GetAxis ("Horizontal");
+         float moveVertical = Input.GetAxis ("Vertical");
+ 
+         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+         GetComponent<Rigidbody>().velocity = movement * walkingspeed;
+ }
+}
