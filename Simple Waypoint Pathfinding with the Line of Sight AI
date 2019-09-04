@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPointAnimal : MonoBehaviour
+public class WayPointAI : MonoBehaviour
 {
     public Transform player;
     public Transform head;
@@ -32,12 +32,12 @@ public class WayPointAnimal : MonoBehaviour
             anim.SetBool("isWalking", true);
             if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
-                currentWP = Random.Range(0, waypoints.Length);
-                //currentWP++;
-                //if (currentWP >= waypoints.Length)
-                //{
-                  //  currentWP = 0;
-                //}
+                //for random waypoint(next 3 line will be in comment section) -> //currentWP = Random.Range(0, waypoints.Length);
+                currentWP++;
+                if (currentWP >= waypoints.Length)
+                {
+                    currentWP = 0;
+                }
             }
             //rotate towards waypoint
             direction = waypoints[currentWP].transform.position - transform.position;
