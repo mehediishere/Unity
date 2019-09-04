@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WayPointAI : MonoBehaviour
+public class WayPointAnimal : MonoBehaviour
 {
     public Transform player;
     public Transform head;
@@ -32,18 +32,20 @@ public class WayPointAI : MonoBehaviour
             anim.SetBool("isWalking", true);
             if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
-                currentWP++;
-                if (currentWP >= waypoints.Length)
-                {
-                    currentWP = 0;
-                }
+                currentWP = Random.Range(0, waypoints.Length);
+                //currentWP++;
+                //if (currentWP >= waypoints.Length)
+                //{
+                  //  currentWP = 0;
+                //}
             }
             //rotate towards waypoint
             direction = waypoints[currentWP].transform.position - transform.position;
             this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotspeed * Time.deltaTime);
             this.transform.Translate(0, 0, Time.deltaTime * speed);
         }
-        if(Vector3.Distance(player.position, this.transform.position)<10 && (angle<30 || state=="pursuing"))
+                                                                            //angle from which AI will see the target
+        if(Vector3.Distance(player.position, this.transform.position)<10 && (angle<300 || state=="pursuing"))
         {
             state = "pursuing";
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), rotspeed * Time.deltaTime);
