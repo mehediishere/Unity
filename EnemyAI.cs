@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,12 +29,6 @@ public class EnemyAI : MonoBehaviour
     public float counterTime = 5f;
     float var1 = 1;
 
-    float xPos;
-    float zPos;
-    public float minXpos = 328.88f;
-    public float maxXpos = 358.39f;
-    public float minZpos = 513.53f;
-    public float maxZpos = 564.9f;
 
     void Start()
     {
@@ -60,23 +54,18 @@ public class EnemyAI : MonoBehaviour
             if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
                     //for random waypoint(next 3 line will be in comment section) -> //currentWP = Random.Range(0, waypoints.Length);
-                    currentWP++;
-                    print("currentWP : " + currentWP);
-                    print("waypoints.Length: " + waypoints.Length);
+                    /*currentWP++;
                     if (currentWP >= waypoints.Length)
                     {
                         currentWP = 0;
-                    }
-                    //currentWP = Random.Range(0, waypoints.Length);
-                        waypoints[currentWP].transform.position = new Vector3(xPos, 104.297f, zPos);
-                
+                    }*/
+                    currentWP = Random.Range(0, waypoints.Length);           
 
             }
             //rotate towards waypoint
             direction = waypoints[currentWP].transform.position - transform.position;
             this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
             this.transform.Translate(0, 0, Time.deltaTime * speed);
-            positionvalue();
         }
 
 
@@ -151,10 +140,6 @@ public class EnemyAI : MonoBehaviour
             currentTime = counterTime;
         }
     }
-    public void positionvalue()
-    {
-        xPos = Random.Range(minXpos, maxXpos);
-        zPos = Random.Range(minZpos, maxZpos);
-    }
+
 
 }
