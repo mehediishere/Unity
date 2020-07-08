@@ -1,0 +1,76 @@
+    /*
+      Note: If gameobject have layer and tag attached same time. tag may not work sometime.
+    
+    */
+    
+    void OnTriggerEnter(Collider other)
+    {
+        //if (other.tag == "Player") 
+        //Or
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Enter");
+        }
+        else
+        {
+            Debug.Log("Other Enter");
+        }      
+    }
+    
+    //OR
+    
+    void OnTriggerEnter(Collider other)
+    {
+        //if (other.name == "Player Name") 
+        //Or
+        if (other.gameObject.name == "Player Name")
+        {
+            Debug.Log("Player Enter");
+        }
+        else
+        {
+            Debug.Log("Other Enter");
+        }      
+    }
+    
+    //OR
+    
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.gameObject.layer == LayerMask.NameToLayer("Layer Name"))
+        {
+            Debug.Log("Player Enter");
+        }
+        else
+        {
+            Debug.Log("Other Enter");
+        }
+    }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Inside Staying Now");
+        }
+        else
+        {
+            Debug.Log("Other Inside Staying Now");
+        }
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player exit");
+        }
+        else
+        {
+            Debug.Log("Other Exit");
+        }
+    }
