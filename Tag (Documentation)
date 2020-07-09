@@ -1,6 +1,13 @@
     /*
-      Note: If gameobject have layer and tag attached same time. tag may not work sometime.
-    
+      Note: 1. If gameobject have layer and tag attached same time. tag may not work sometime.
+      
+            2. You should not set a tag from the Awake() or OnValidate() method.
+            
+            3. Both GameObjects must contain a Collider component. One must have Collider.isTrigger enabled, and contain a Rigidbody. 
+               If both GameObjects have Collider.isTrigger enabled, no collision happens. The same applies when both GameObjects do not have a Rigidbody component.
+               
+            4. To use the following code sample, create a primitive GameObject, and attach a Collider and Rigidbody component to it. 
+               Enable Collider.isTrigger and Rigidbody.isKinematic. When the primitive collides, OnTriggerEnter gets called.  
     */
     
     void OnTriggerEnter(Collider other)
