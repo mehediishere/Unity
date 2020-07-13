@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class randomWalk : MonoBehaviour
+public class RandomWalkObject : MonoBehaviour
 {
     [Help("At scene must have player/object with tag 'Player'", UnityEditor.MessageType.Warning)] //->HelpAttribure.cs (Manual Scripts). Put that in comment if you don't 
                                                                                                                                                        //have this script.
