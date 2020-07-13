@@ -14,9 +14,9 @@ public class EnemyAI : MonoBehaviour
 
     //public GameObject sphereOnEnemy;
 
-    [SerializeField] double EnemyNoticePlayer = 10;
-    [SerializeField] double EnemySeeingAngle = 360;
-    [SerializeField] double EnemyAttackRange = 2;
+    public double EnemyNoticePlayer = 10;
+    public double EnemySeeingAngle = 360;
+    public double EnemyAttackRange = 2;
 
     string state = "patrol";
     public GameObject[] waypoints;
