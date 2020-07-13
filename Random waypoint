@@ -1,0 +1,59 @@
+public Transform player;
+    public Transform head;
+    Animator anim;
+
+    string state = "patrol";
+    public GameObject[] waypoints;
+    int currentWP = 0;
+    public float rotspeed = 0.2f;
+    public float speed = 1.5f;
+    public float accuracyWP = 5.0f;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        Vector3 direction = player.position - this.transform.position;
+        direction.y = 0;
+        float angle = Vector3.Angle(direction, head.up);
+
+        if (state == "patrol" && waypoints.Length > 0)
+        {
+            //anim.Play("walk");
+            print("Now walking");
+            if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
+            {
+                currentWP = Random.Range(0, waypoints.Length);
+            }
+            //rotate towards waypoint
+            direction = waypoints[currentWP].transform.position - transform.position;
+            this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotspeed * Time.deltaTime);
+            this.transform.Translate(0, 0, Time.deltaTime * speed);
+        }
+                                                                            //angle from which AI will see the target
+        if(Vector3.Distance(player.position, this.transform.position)<10 && (angle<300 || state=="pursuing"))
+        {
+            state = "pursuing";
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), rotspeed * Time.deltaTime);
+            if(direction.magnitude > 5)
+            {
+                this.transform.Translate(0, 0, Time.deltaTime * speed);
+                //anim.Play("walk");
+                print("Now walking");
+            }
+            else
+            {
+                //anim.Play("attack");
+                print("Now attacking");
+            }
+        }
+        else
+        {
+            //anim.Play("walk");
+            print("Now walking");
+            state = "patrol";
+        }
+    }
