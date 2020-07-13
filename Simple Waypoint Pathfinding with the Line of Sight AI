@@ -28,8 +28,8 @@ public class WayPointAI : MonoBehaviour
 
         if (state == "patrol" && waypoints.Length > 0)
         {
-            anim.SetBool("isIdle", false);
-            anim.SetBool("isWalking", true);
+            //anim.Play("walk");
+            print("Now walking");
             if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
             {
                 //for random waypoint(next 3 line will be in comment section) -> //currentWP = Random.Range(0, waypoints.Length);
@@ -52,19 +52,19 @@ public class WayPointAI : MonoBehaviour
             if(direction.magnitude > 5)
             {
                 this.transform.Translate(0, 0, Time.deltaTime * speed);
-                anim.SetBool("isWalking", true);
-                anim.SetBool("isAttacking", false);
+                //anim.Play("walk");
+                print("Now walking");
             }
             else
             {
-                anim.SetBool("isWalking", false);
-                anim.SetBool("isAttacking", true);
+                //anim.Play("attack");
+                print("Now attacking");
             }
         }
         else
         {
-            anim.SetBool("isWalking", true);
-            anim.SetBool("isAttacking", false);
+            //anim.Play("walk");
+            print("Now walking");
             state = "patrol";
         }
     }
