@@ -1,8 +1,6 @@
-//Source : https://forum.unity.com/threads/locking-the-x-and-z-axis-while-using-transform-lookat.521817/
-
-Vector3 rot = Quaternion.LookRotation(target.position - transform.position).eulerAngles;
-rot.x = rot.z = 0;
-transform.rotation = Quaternion.Euler(rot);
+Vector3 rotate = Quaternion.LookRotation(target.position - transform.position).eulerAngles;
+rotate.x = rotate.z = 0;
+transform.rotation = Quaternion.Euler(rotate);
 
  // or
  
