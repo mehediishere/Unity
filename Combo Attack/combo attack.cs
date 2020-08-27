@@ -30,7 +30,7 @@ public class combo : MonoBehaviour {
                 
         if (noOfClicks == 1)
         {           
-            anim.SetInteger("animation", 31);
+            anim.SetInteger("animation", 1);
         }          
     }
  
@@ -46,7 +46,7 @@ public class combo : MonoBehaviour {
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("1st attack name") &&  noOfClicks >= 2) //If the first animation is still playing and at least 2 clicks have happened, continue the combo 
         {         
-            anim.SetInteger("animation", 33);
+            anim.SetInteger("animation", 2);
             canClick = true;
         }
         else if(anim.GetCurrentAnimatorStateInfo(0).IsName("2nd attack name") && noOfClicks == 2)  //If the second animation is still playing and only 2 clicks have happened, return to idle 
@@ -57,7 +57,7 @@ public class combo : MonoBehaviour {
         }
        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("2nd attack name") && noOfClicks >= 3) //If the second animation is still playing and at least 3 clicks have happened, continue the combo
         {           
-            anim.SetInteger("animation", 6);
+            anim.SetInteger("animation", 3);
             canClick = true;           
         }
        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("3rd attack name")) //Since this is the third and last animation, return to idle 
