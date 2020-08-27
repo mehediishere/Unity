@@ -1,3 +1,5 @@
+//Every attack animation need event function according to steps shown
+
 using UnityEngine;
  
 public class combo : MonoBehaviour {
