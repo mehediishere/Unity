@@ -1,6 +1,6 @@
 using UnityEngine;
  
-public class AkaneControl : MonoBehaviour {
+public class combo : MonoBehaviour {
        
     Animator anim;//You may not need an animator, but if so declare it here   
        
