@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class SmoothFollow : MonoBehaviour
+public class SmoothFollow_TP_Camera : MonoBehaviour
 {
-    public bool shouldRotate = true;
-
     // The target we are following
     public Transform target;
     // The distance in the x-z plane to the target
@@ -13,6 +11,9 @@ public class SmoothFollow : MonoBehaviour
     // How much we
     public float heightDamping = 2.0f;
     public float rotationDamping = 3.0f;
+    
+    public bool shouldRotate = true;
+    
     float wantedRotationAngle;
     float wantedHeight;
     float currentRotationAngle;
