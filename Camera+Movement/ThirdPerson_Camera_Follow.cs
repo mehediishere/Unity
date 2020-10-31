@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TP_Camera : MonoBehaviour
+public class ThirdPerson_Camera_Follow : MonoBehaviour
 {
     public Transform trackedObject; 
     public float maxDistance = 10; 
