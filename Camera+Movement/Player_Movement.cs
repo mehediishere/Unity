@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 
-public class Movement : MonoBehaviour
+public class Player_Movement : MonoBehaviour
 {
     Rigidbody rb;
 
