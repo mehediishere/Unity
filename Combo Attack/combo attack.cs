@@ -4,7 +4,7 @@ using UnityEngine;
  
 public class combo : MonoBehaviour {
        
-    Animator anim;//You may not need an animator, but if so declare it here   
+    Animator anim;
        
     int noOfClicks; //Determines Which Animation Will Play
     bool canClick; //Locks ability to click during animation event
@@ -35,8 +35,9 @@ public class combo : MonoBehaviour {
             anim.SetInteger("animation", 1);
         }          
     }
- 
-    public void ComboCheck() {
+     
+    //Note: "ComboCheck()" will be added in animation event
+    public void ComboCheck() {     
         
         canClick = false;
         
